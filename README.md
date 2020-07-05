@@ -1,13 +1,16 @@
 StepView
 ======================
+[![](https://jitpack.io/v/javaherisaber/StepView.svg)](https://jitpack.io/#javaherisaber/StepView)
 
 A simple animated step view for Android. Backward and forward animations is supported.
+
+Edited from [shuhart](https://github.com/shuhart/StepView)
 
 Usage
 -----
 
 1. Add jcenter() to repositories block in your gradle file.
-2. Add `implementation 'com.shuhart.stepview:stepview:1.5.1'` to your dependencies.
+2. Add `implementation "com.github.javaherisaber:StepView:$versions.stepView"` to your dependencies.
 3. Add `StepView` into your layouts or view hierarchy.
 
 Supported animations:
@@ -139,6 +142,7 @@ In xml:
 	android:layout_height="wrap_content"
 	android:padding="16dp"
 	app:sv_nextStepCircleEnabled="true"
+	app:sv_nextStepNumberColor="@color/white"
 	app:sv_nextStepCircleColor="@color/gray"/>
 ```
 
