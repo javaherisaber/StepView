@@ -97,6 +97,8 @@ public class StepView extends View {
     @ColorInt
     private int nextStepLineColor;
     @ColorInt
+    private int nextStepNumberColor;
+    @ColorInt
     private int doneStepLineColor;
     @Dimension
     private int stepLineWidth;
@@ -161,6 +163,7 @@ public class StepView extends View {
         nextTextColor = ta.getColor(R.styleable.StepView_sv_nextTextColor, 0);
         stepPadding = ta.getDimensionPixelSize(R.styleable.StepView_sv_stepPadding, 0);
         nextStepLineColor = ta.getColor(R.styleable.StepView_sv_nextStepLineColor, 0);
+        nextStepNumberColor = ta.getColor(R.styleable.StepView_sv_nextStepNumberColor, 0);
         doneStepLineColor = ta.getColor(R.styleable.StepView_sv_doneStepLineColor, 0);
         stepLineWidth = ta.getDimensionPixelSize(R.styleable.StepView_sv_stepLineWidth, 0);
         textPadding = ta.getDimensionPixelSize(R.styleable.StepView_sv_textPadding, 0);
@@ -455,7 +458,7 @@ public class StepView extends View {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private boolean isRtl() {
-        return ViewCompat.getLayoutDirection(this) == View.LAYOUT_DIRECTION_RTL;
+        return ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL;
     }
 
     private void measureAttributes() {
@@ -710,12 +713,12 @@ public class StepView extends View {
                         drawNumber(canvas, number, circleCenterX, paint);
                     } else {
                         paint.setTextSize(stepNumberTextSize);
-                        paint.setColor(nextTextColor);
+                        paint.setColor(nextStepNumberColor);
                         drawNumber(canvas, number, circleCenterX, paint);
                     }
                 } else {
                     paint.setTextSize(stepNumberTextSize);
-                    paint.setColor(nextTextColor);
+                    paint.setColor(nextStepNumberColor);
                     drawNumber(canvas, number, circleCenterX, paint);
                 }
 
@@ -730,7 +733,7 @@ public class StepView extends View {
                     canvas.drawCircle(circleCenterX, circleCenterY, selectedCircleRadius, paint);
                 }
 
-                paint.setColor(nextTextColor);
+                paint.setColor(nextStepNumberColor);
 
                 paint.setTextSize(stepNumberTextSize);
                 drawNumber(canvas, number, circleCenterX, paint);
@@ -815,6 +818,8 @@ public class StepView extends View {
         private int stepPadding = StepView.this.stepPadding;
         @ColorInt
         private int nextStepLineColor = StepView.this.nextStepLineColor;
+        @ColorInt
+        private int nextStepNumberColor = StepView.this.nextStepNumberColor;
         @ColorInt
         private int doneStepLineColor = StepView.this.doneStepLineColor;
         @Dimension
@@ -961,6 +966,7 @@ public class StepView extends View {
             StepView.this.nextTextColor = nextTextColor;
             StepView.this.stepPadding = stepPadding;
             StepView.this.nextStepLineColor = nextStepLineColor;
+            StepView.this.nextStepNumberColor = nextStepNumberColor;
             StepView.this.doneStepLineColor = doneStepLineColor;
             StepView.this.stepLineWidth = stepLineWidth;
             StepView.this.textSize = textSize;
